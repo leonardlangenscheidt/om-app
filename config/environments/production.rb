@@ -27,13 +27,17 @@ Omrails::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  #changed to true due to stackoverflow.com/questions/9572292/heroku-not-displaying-finding-css-and-js-files
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
+
+  # adding from stackoverflow.com/questions/9572292/heroku-not-displaying-finding-css-and-js-files
+  config.assets.enabled = false
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -59,7 +63,7 @@ Omrails::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w[ bootstrap/*.css bootstrap/*.js ]
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
